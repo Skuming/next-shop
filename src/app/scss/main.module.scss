@@ -1,0 +1,11 @@
+@use "./header/header";
+@use "variables" as *;
+@use "./home/home";
+
+body {
+  font-family: $font;
+  font-weight: $semiBold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

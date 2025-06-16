@@ -1,0 +1,105 @@
+@use "../variables" as *;
+
+.header__home {
+  width: 100%;
+  height: fit-content;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 0px 0px $headerRadius $headerRadius;
+  position: sticky;
+  z-index: 50;
+  top: 0;
+
+  .top__header {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .notify {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .bottom__header {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    .shop__name {
+      display: none;
+    }
+    input {
+      width: 100%;
+      height: 40px;
+      background-color: #d8dadd;
+      padding: 10px 10px 10px 25px;
+      border-radius: 5px;
+    }
+    .search {
+      position: absolute;
+      top: 30%;
+      left: 5px;
+      cursor: pointer;
+    }
+    .user__nav {
+      display: none;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .header__home {
+    gap: 5px;
+    .top__header {
+      .notify {
+        display: none !important;
+      }
+    }
+
+    .bottom__header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+      .shop__name {
+        display: block !important;
+        font-size: 36px;
+      }
+
+      form {
+        width: 100%;
+        input {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+      .search {
+        display: none;
+      }
+
+      .user__nav {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .user__btns {
+          width: 80px;
+          height: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          cursor: pointer;
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
