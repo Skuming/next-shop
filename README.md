@@ -1,17 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## If you don`t have [Node.js](https://nodejs.org/en), install it and clone repo 
+
+p.s Node.js is recommended
+
+Check if it installed 
+```bash
+node -v
+# and for packet manager
+npm -v
+```
+
 ## Getting Started
 
-First, run the development server:
+First, install packets:
+
+```bash
+#Type in project directory 
+npm i
+```
+Then, you can start the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
