@@ -173,6 +173,9 @@
 .products .product .product__bottom .add__cart {
   display: none;
 }
+.products .product .product__bottom .added__to__cart {
+  display: none;
+}
 
 .loader {
   width: 15px;
@@ -211,6 +214,9 @@
   }
   .products .product .product__view {
     height: 230px;
+  }
+  .add__cart {
+    display: flex;
   }
   .added__to__cart {
     display: flex !important;

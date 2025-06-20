@@ -63,6 +63,10 @@
       .add__cart {
         display: none;
       }
+
+      .added__to__cart {
+        display: none;
+      }
     }
   }
 }
@@ -107,6 +111,10 @@
         height: 230px;
       }
     }
+  }
+
+  .add__cart {
+    display: flex;
   }
 
   .added__to__cart {

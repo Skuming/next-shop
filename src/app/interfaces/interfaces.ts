@@ -13,3 +13,7 @@ export interface Modal {
   children: ReactNode;
   isOpened?: boolean;
 }
+
+export interface HeaderProps {
+  cart?: number[];
+}

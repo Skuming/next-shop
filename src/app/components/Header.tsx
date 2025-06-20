@@ -11,15 +11,14 @@ import style from "../scss/main.module.css";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import { HeaderProps } from "../interfaces/interfaces";
 
-export default function Header() {
+export default function Header({ cart = [] }: HeaderProps) {
+  console.log(cart);
   const [cookie, setCookie] = useState<string | undefined>(undefined);
 
-  const [cartAmount, setCartAmount] = useState(0);
   useEffect(() => {
-    const cartLength = JSON.parse(localStorage.getItem("cart") || "[]").length;
     setCookie(Cookies.get("session"));
-    setCartAmount(cartLength);
   }, []);
   return (
     <>
@@ -73,8 +72,8 @@ export default function Header() {
             <button className={style.user__btns}>
               <Image src={cartImg} alt="" />
               <span>Корзина</span>
-              {cartAmount > 0 ? (
-                <span className={style.cart__count}>{cartAmount}</span>
+              {cart.length > 0 ? (
+                <span className={style.cart__count}>{cart.length}</span>
               ) : (
                 ""
               )}

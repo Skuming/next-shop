@@ -53,7 +53,7 @@ export default function Home() {
   }
   return (
     <>
-      <Header></Header>
+      <Header cart={cartItems} />
       <div className={style.products}>
         {apiResponse.map((item, index) => (
           <div className={style.product} key={index}>
