@@ -73,7 +73,7 @@ export default function Home() {
                 <Image src={chatImg} alt="chat" />
                 <span>{item.feedback}</span>
               </div>
-              {!localStorage.getItem("cart")?.includes(`${item.id}`) ? (
+              {!cartItems.includes(item.id) ? (
                 <button
                   className={style.add__cart}
                   onClick={() => handleClick(item.id)}
