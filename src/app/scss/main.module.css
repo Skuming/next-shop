@@ -56,7 +56,7 @@
     gap: 5px;
   }
   .header__home .top__header .notify {
-    display: none !important;
+    display: none;
   }
   .header__home .bottom__header {
     display: flex;
@@ -91,9 +91,24 @@
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
   }
   .header__home .bottom__header .user__nav .user__btns span {
     font-size: 12px;
+  }
+  .header__home .bottom__header .user__nav .user__btns .cart__count {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 14px;
+    top: 6px;
+    right: 13px;
+    background: #c75252;
+    color: #fff;
+    border-radius: 100%;
   }
 }
 .products {
@@ -197,14 +212,24 @@
   .products .product .product__view {
     height: 230px;
   }
+  .added__to__cart {
+    display: flex !important;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: #353535 1px solid;
+  }
   .add__cart {
     display: flex !important;
     background: #353535;
     border-radius: 5px;
     padding: 5px;
     width: 100%;
-    height: -moz-fit-content;
-    height: fit-content;
+    height: 30px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -219,6 +244,37 @@
     justify-content: center;
   }
 }
+.user__page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}
+.user__page .user__background {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  display: flex;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 30px;
+}
+.user__page .user__background .user__photo {
+  height: 320px;
+  width: 320px;
+  border-radius: 10px;
+}
+.user__page .user__background .user__name {
+  font-size: 32px;
+}
+.user__page .user__background ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 body {
   font-family: var(--font-montserrat);
   font-weight: 600;

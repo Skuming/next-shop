@@ -108,13 +108,26 @@
       }
     }
   }
+
+  .added__to__cart {
+    display: flex !important;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: #353535 1px solid;
+  }
+
   .add__cart {
     display: flex !important;
     background: #353535;
     border-radius: 5px;
     padding: 5px;
     width: 100%;
-    height: fit-content;
+    height: 30px;
     align-items: center;
     justify-content: center;
     cursor: pointer;

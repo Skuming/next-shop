@@ -57,7 +57,7 @@
     gap: 5px;
     .top__header {
       .notify {
-        display: none !important;
+        display: none;
       }
     }
 
@@ -95,8 +95,23 @@
           align-items: center;
           flex-direction: column;
           cursor: pointer;
+          position: relative;
           span {
             font-size: 12px;
+          }
+          .cart__count {
+            display: flex;
+            width: 20px;
+            height: 20px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            font-size: 14px;
+            top: 6px;
+            right: 13px;
+            background: #c75252;
+            color: #fff;
+            border-radius: 100%;
           }
         }
       }

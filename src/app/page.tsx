@@ -10,24 +10,21 @@ import { getProducts } from "./services/api";
 import starImg from "../../public/img/Star.svg";
 import chatImg from "../../public/img/Chat.svg";
 import cartImg from "../../public/img/Buy.svg";
-import LoginModal from "./components/Modals/LoginModal";
 
 export default function Home() {
   const [apiResponse, setApiResponse] = useState<Product[]>([]);
+  const [cartItems, setCartItems] = useState<number[]>([]);
 
-  const [id, setId] = useState(new Set());
-
-  const handleClick = async (picked: number) => {
-    setId((prev) => {
-      if (!prev.has(picked)) {
-        const tempSet = new Set(prev);
-        tempSet.add(picked);
-        return tempSet;
+  const handleClick = (picked: number) => {
+    setCartItems((prev) => {
+      let newItems;
+      if (prev.includes(picked)) {
+        newItems = prev.filter((id) => id !== picked);
       } else {
-        const tempSet = new Set(prev);
-        tempSet.delete(picked);
-        return tempSet;
+        newItems = [...prev, picked];
       }
+      localStorage.setItem("cart", JSON.stringify(newItems));
+      return newItems;
     });
   };
 
@@ -36,12 +33,17 @@ export default function Home() {
       try {
         const result = await getProducts();
         setApiResponse(result.data);
+        const savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+          setCartItems(JSON.parse(savedCart));
+        }
       } catch (error) {
         console.error(error);
       }
     };
     fetchProducts();
   }, []);
+
   if (apiResponse.length === 0) {
     return (
       <div className="h-screen w-full flex items-center justify-center">
@@ -49,7 +51,6 @@ export default function Home() {
       </div>
     );
   }
-
   return (
     <>
       <Header></Header>
@@ -72,21 +73,28 @@ export default function Home() {
                 <Image src={chatImg} alt="chat" />
                 <span>{item.feedback}</span>
               </div>
-              <button
-                className={style.add__cart}
-                onClick={() => handleClick(item.id)}
-              >
-                <span>
-                  В корзину
-                  <Image src={cartImg} alt="" />
-                </span>
-              </button>
+              {!localStorage.getItem("cart")?.includes(`${item.id}`) ? (
+                <button
+                  className={style.add__cart}
+                  onClick={() => handleClick(item.id)}
+                >
+                  <span>
+                    В корзину
+                    <Image src={cartImg} alt="" />
+                  </span>
+                </button>
+              ) : (
+                <button
+                  className={style.added__to__cart}
+                  onClick={() => handleClick(item.id)}
+                >
+                  <span>В корзине</span>
+                </button>
+              )}
             </div>
           </div>
         ))}
       </div>
-
-      <LoginModal></LoginModal>
     </>
   );
 }

@@ -1,6 +1,7 @@
 @use "./header/header";
 @use "variables" as *;
 @use "./home/home";
+@use "./user/user";
 
 body {
   font-family: $font;

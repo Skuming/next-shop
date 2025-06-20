@@ -1,0 +1,35 @@
+@use "../variables" as *;
+
+.user__page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  .user__background {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 10px;
+    border-radius: $productRadius;
+    align-items: center;
+    gap: 30px;
+    .user__photo {
+      height: 320px;
+      width: 320px;
+      //   border: solid #d3d3d3 1px;
+      border-radius: $productRadius;
+    }
+
+    .user__name {
+      font-size: 32px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+}
